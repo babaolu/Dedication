@@ -59,7 +59,7 @@
     <div class="interlude-pre">✦ And then ✦</div>
     <div class="interlude-title">Seyi &amp; Ebun Oladepo joyfully welcome</div>
     <h2 class="interlude-name">Enoch</h2>
-    <div class="interlude-meaning">— He who is Dedicated, Trained and Consecrated —</div>
+    <div class="interlude-meaning">— He who walks with God —</div>
     
     <div class="interlude-line"></div>
     
