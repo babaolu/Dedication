@@ -20,16 +20,18 @@
   import Gallery from './lib/sections/Gallery.svelte';
   import Closing from './lib/sections/Closing.svelte';
 
-  let sectionsList = [];
   let engine = null;
-
+  
   // Placeholder navigation callback until engine mounts
   let goTo = (idx) => {};
 
   onMount(() => {
+    // Query DOM directly to get all 8 sections in document order
+    const sections = Array.from(document.querySelectorAll('#stage .card'));
+
     // Instantiate card transition engine with bound DOM elements
     engine = createEngine({
-      sections: sectionsList,
+      sections,
       onSectionChange: (idx) => {
         currentSection.set(idx);
       }
@@ -52,14 +54,14 @@
 
 <!-- Section stage and cards -->
 <div id="stage">
-  <Hero bind:element={sectionsList[0]} />
-  <Chapter1 bind:element={sectionsList[1]} />
-  <Chapter2 bind:element={sectionsList[2]} />
-  <Chapter3 bind:element={sectionsList[3]} />
-  <Interlude bind:element={sectionsList[4]} />
-  <Chapter4 bind:element={sectionsList[5]} />
-  <Gallery bind:element={sectionsList[6]} />
-  <Closing bind:element={sectionsList[7]} />
+  <Hero />
+  <Chapter1 />
+  <Chapter2 />
+  <Chapter3 />
+  <Interlude />
+  <Chapter4 />
+  <Gallery />
+  <Closing />
 </div>
 
 <!-- Full-screen Click-Zone and Swipe Overlay -->
