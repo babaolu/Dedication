@@ -34,8 +34,6 @@
     </div>
     
     <div class="text-panel tp-blend">
-      <div class="chapter-tag">Chapter Five</div>
-      <div class="chapter-number cn-sage">05</div>
       <h2 class="chapter-title">Our <em>Greatest</em> Gift</h2>
       <div class="chapter-text">
         <p>He arrived on the 3rd of March — and the house filled with a joy that has no adequate word. Enoch. Tiny fingers, curious eyes, and a cry that sounded like an answered prayer.</p>
@@ -114,37 +112,6 @@
 
   .tp-blend {
     background: linear-gradient(160deg, #ffffff 0%, #eaf4f0 50%, #eaf2f6 100%);
-  }
-
-  .chapter-tag {
-    font-size: 11.5px;
-    letter-spacing: .35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .chapter-tag::before {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .chapter-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(65px, 10vw, 100px);
-    font-weight: 300;
-    line-height: 1;
-    margin-bottom: -10px;
-  }
-
-  .cn-sage {
-    color: #c8ddd2;
   }
 
   .chapter-title {

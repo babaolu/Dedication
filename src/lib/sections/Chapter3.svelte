@@ -34,8 +34,6 @@
     </div>
     
     <div class="text-panel tp-blue">
-      <div class="chapter-tag">Chapter Three</div>
-      <div class="chapter-number cn-blue">03</div>
       <h2 class="chapter-title">The Beautiful <em>Wait</em></h2>
       <div class="chapter-text">
         <p>Four years. Four years of praying, trusting, and holding on together. There were mornings of tears and evenings of worship. There were moments of doubt dissolved by faith.</p>
@@ -106,37 +104,6 @@
 
   .tp-blue {
     background: linear-gradient(160deg, #ffffff 0%, #eaf2f6 100%);
-  }
-
-  .chapter-tag {
-    font-size: 11.5px;
-    letter-spacing: .35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .chapter-tag::before {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .chapter-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(65px, 10vw, 100px);
-    font-weight: 300;
-    line-height: 1;
-    margin-bottom: -10px;
-  }
-
-  .cn-blue {
-    color: #cce4ee;
   }
 
   .chapter-title {

@@ -34,9 +34,7 @@
     </div>
     
     <div class="text-panel tp-sage">
-      <div class="chapter-tag">Chapter Two</div>
-      <div class="chapter-number cn-sage">02</div>
-      <h2 class="chapter-title">They Said <em>"I Do"</em></h2>
+      <h2 class="chapter-title">A Love That Found <em>Its Way</em></h2>
       <div class="chapter-text">
         <p>Seyi saw Ebun, and the world quietly rearranged itself. Two hearts, two paths, crossing at exactly the right moment — because God's timing is never late.</p>
         <p>What started as friendship bloomed into something neither could deny: a love rooted in faith, laughter, and the certainty that they were made for each other.</p>
@@ -113,37 +111,6 @@
 
   .tp-sage {
     background: linear-gradient(160deg, #ffffff 0%, #eaf4f0 100%);
-  }
-
-  .chapter-tag {
-    font-size: 11.5px;
-    letter-spacing: .35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .chapter-tag::before {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .chapter-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(65px, 10vw, 100px);
-    font-weight: 300;
-    line-height: 1;
-    margin-bottom: -10px;
-  }
-
-  .cn-sage {
-    color: #c8ddd2;
   }
 
   .chapter-title {

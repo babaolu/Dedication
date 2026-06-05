@@ -34,8 +34,6 @@
     </div>
     
     <div class="text-panel tp-support">
-      <div class="chapter-tag">Chapter Four</div>
-      <div class="chapter-number cn-purple">04</div>
       <h2 class="chapter-title">Surrounded by <em>Love</em></h2>
       <div class="chapter-text">
         <p>A miracle is never witnessed in isolation. As Seyi and Ebun waited, and as they now celebrate, they were never alone. They were held up by the hands of friends, wrapped in the prayers of parents, and cheered on by a community of love.</p>
@@ -105,37 +103,6 @@
 
   .tp-support {
     background: linear-gradient(160deg, #ffffff 0%, #edf4f8 50%, #eaf4f0 100%);
-  }
-
-  .chapter-tag {
-    font-size: 11.5px;
-    letter-spacing: .35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .chapter-tag::before {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .chapter-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(65px, 10vw, 100px);
-    font-weight: 300;
-    line-height: 1;
-    margin-bottom: -10px;
-  }
-
-  .cn-purple {
-    color: #cce4ee;
   }
 
   .chapter-title {
