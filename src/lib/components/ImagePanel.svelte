@@ -157,25 +157,25 @@
   }
 
   /* CSS Gradients Fallback */
-  .img-slide.p1 { background: linear-gradient(135deg, #e8c99a, #d4a574, #c4956a); }
-  .img-slide.p2 { background: linear-gradient(135deg, #f0dcc0, #e0c095, #d0a870); }
-  .img-slide.p3 { background: linear-gradient(135deg, #ddd0b8, #c8b890, #b8a068); }
+  .img-slide.p1 { background: linear-gradient(135deg, #b4d0dc, #8ab0c0, #6a98ac); }
+  .img-slide.p2 { background: linear-gradient(135deg, #c8dce8, #a8c4d4, #88aac0); }
+  .img-slide.p3 { background: linear-gradient(135deg, #d4e4ec, #b8d0dc, #98bcc8); }
 
-  .img-slide.q1 { background: linear-gradient(135deg, #e0d5c8, #c8baa8, #b8a490); }
-  .img-slide.q2 { background: linear-gradient(135deg, #d8e0d5, #b8c8b4, #98b090); }
-  .img-slide.q3 { background: linear-gradient(135deg, #e8ddd5, #d0c0b0, #b8a090); }
+  .img-slide.q1 { background: linear-gradient(135deg, #bcd4d8, #9cbcc4, #7ca8b4); }
+  .img-slide.q2 { background: linear-gradient(135deg, #c4d8d0, #a4c0bc, #84acac); }
+  .img-slide.q3 { background: linear-gradient(135deg, #ccdce4, #aac8d4, #8ab4c4); }
 
-  .img-slide.r1 { background: linear-gradient(135deg, #f0e8e0, #e0d0c0, #d0b8a0); }
-  .img-slide.r2 { background: linear-gradient(135deg, #ece0d8, #d8c8b8, #c8b098); }
-  .img-slide.r3 { background: linear-gradient(135deg, #f8ede0, #ecd8c0, #e0c4a0); }
+  .img-slide.r1 { background: linear-gradient(135deg, #d0e4e8, #b0ccd8, #90b8c8); }
+  .img-slide.r2 { background: linear-gradient(135deg, #c8dce0, #a8c8d4, #88b4c4); }
+  .img-slide.r3 { background: linear-gradient(135deg, #dce8ec, #bcd4dc, #9cc0cc); }
 
-  .img-slide.s1 { background: linear-gradient(135deg, #fce8d8, #f8d8c0, #f0c8a8); }
-  .img-slide.s2 { background: linear-gradient(135deg, #fce0d0, #f8cdb8, #f4baa0); }
-  .img-slide.s3 { background: linear-gradient(135deg, #f8e8dc, #f4d8c4, #eec8a8); }
+  .img-slide.s1 { background: linear-gradient(135deg, #c0d8e4, #a0c4d4, #80b0c8); }
+  .img-slide.s2 { background: linear-gradient(135deg, #b8d4e0, #98c0d0, #78acc0); }
+  .img-slide.s3 { background: linear-gradient(135deg, #ccdee8, #acccd8, #8cb8c8); }
 
-  .img-slide.t1 { background: linear-gradient(135deg, #e0d0f0, #c8b0e0, #b090d0); }
-  .img-slide.t2 { background: linear-gradient(135deg, #f0d0e0, #e0b0c8, #d090b0); }
-  .img-slide.t3 { background: linear-gradient(135deg, #e0f0d0, #c8e0b0, #b0d090); }
+  .img-slide.t1 { background: linear-gradient(135deg, #b8d4e8, #98bcd8, #78a8cc); }
+  .img-slide.t2 { background: linear-gradient(135deg, #c4d8e4, #a4c4d8, #84b0cc); }
+  .img-slide.t3 { background: linear-gradient(135deg, #c0dce4, #a0c8d8, #80b4cc); }
 
   .img-slide::after {
     content: attr(data-icon);

@@ -58,7 +58,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 100vh;
-    background: #f2f6f4;
+    background: #eaf4f0;
   }
 
   .chapter-card.flip-layout {
@@ -107,12 +107,12 @@
     right: 0;
     width: 120px;
     height: 120px;
-    background: radial-gradient(circle at top right, rgba(200, 192, 216, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle at top right, rgba(100, 180, 160, 0.12) 0%, transparent 70%);
     pointer-events: none;
   }
 
   .tp-sage {
-    background: linear-gradient(160deg, #ffffff 0%, #f2f6f4 100%);
+    background: linear-gradient(160deg, #ffffff 0%, #eaf4f0 100%);
   }
 
   .chapter-tag {
@@ -143,7 +143,7 @@
   }
 
   .cn-sage {
-    color: #e6eee9;
+    color: #c8ddd2;
   }
 
   .chapter-title {
@@ -180,7 +180,7 @@
   }
 
   .verse-sage {
-    background: #f2f5f1;
+    background: #e4f0ec;
   }
 
   .verse p {

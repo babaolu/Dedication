@@ -132,7 +132,7 @@
     left: 0;
     right: 0;
     z-index: 8000;
-    background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 80%, rgba(255, 255, 255, 0.9) 100%);
+    background: linear-gradient(to top, rgba(238, 246, 250, 0.98) 80%, rgba(238, 246, 250, 0.9) 100%);
     backdrop-filter: blur(10px);
     box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.05);
     padding: 20px 24px;
@@ -180,7 +180,7 @@
     aspect-ratio: 1/1;
     border: 1px solid var(--gold-light);
     border-radius: 4px;
-    background: rgba(245, 234, 212, 0.92);
+    background: rgba(221, 234, 240, 0.92);
     padding: 8px;
   }
 

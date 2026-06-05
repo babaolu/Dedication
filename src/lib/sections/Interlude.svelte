@@ -83,7 +83,7 @@
 
 <style>
   #s-interlude {
-    background: linear-gradient(150deg, #3a2e22 0%, #5a4535 50%, #3a2e22 100%);
+    background: linear-gradient(150deg, #1a2a35 0%, #2a4050 50%, #1a2a35 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,7 +98,7 @@
     position: absolute;
     inset: 0;
     /* Soft light radial gradient vignette overlay on Interlude.jpeg ensures perfect readability when darkened */
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(245, 240, 235, 0.8) 100%), 
+    background: radial-gradient(circle, rgba(220, 240, 250, 0.3) 0%, rgba(200, 225, 240, 0.8) 100%),
                 url('/images/Interlude.jpeg');
     background-size: cover;
     background-position: center;
@@ -173,7 +173,7 @@
     color: var(--gold);
     line-height: 1;
     margin-bottom: 16px;
-    text-shadow: 0 0 80px rgba(201, 169, 110, .4);
+    text-shadow: 0 0 80px rgba(100, 180, 220, 0.4);
   }
 
   .interlude-meaning {
@@ -223,7 +223,7 @@
 
   .interlude-content.darkened-text .interlude-name {
     color: var(--text-dark);
-    text-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 10px rgba(200, 230, 245, 0.5);
   }
 
   .interlude-content.darkened-text .interlude-meaning {

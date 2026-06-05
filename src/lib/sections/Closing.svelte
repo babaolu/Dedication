@@ -77,7 +77,7 @@
 
   /* Solid top 1/3 card containing the closing texts */
   .closing-content {
-    background: linear-gradient(160deg, #ffffff 0%, #faf8fc 40%, #f6f3fc 100%);
+    background: linear-gradient(160deg, #ffffff 0%, #eef6fa 40%, #eaf4f0 100%);
     width: 100%;
     min-height: 40vh; /* Occupies exactly 1/3 of the viewport height */
     display: flex;

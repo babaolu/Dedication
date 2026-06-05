@@ -42,7 +42,7 @@
 
 <style>
   #s-gallery {
-    background: linear-gradient(160deg, #f8f9f8 0%, #f2f5f2 50%, #f5f2f9 100%);
+    background: linear-gradient(160deg, #f0f7fa 0%, #eaf4f0 50%, #eaf2f6 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,12 +113,12 @@
   }
 
   /* Specific Gradient Layouts matching original classes */
-  .gallery-card :global(.c1) { background: linear-gradient(135deg, #f8e0c8, #e8c8a0); }
-  .gallery-card :global(.c2) { background: linear-gradient(135deg, #e8eef0, #d0dde8); }
-  .gallery-card :global(.c3) { background: linear-gradient(135deg, #f0e0d8, #d8c0b0); }
-  .gallery-card :global(.c4) { background: linear-gradient(135deg, #eaeef0, #ccd8e4); }
-  .gallery-card :global(.c5) { background: linear-gradient(135deg, #fce8d8, #f0d0b0); }
-  .gallery-card :global(.c6) { background: linear-gradient(135deg, #eaecf4, #d4d8ee); }
+  .gallery-card :global(.c1) { background: linear-gradient(135deg, #c8dce8, #a8c4d4); }
+  .gallery-card :global(.c2) { background: linear-gradient(135deg, #c4d8d0, #a4c0b8); }
+  .gallery-card :global(.c3) { background: linear-gradient(135deg, #d4e4ec, #b4ccd8); }
+  .gallery-card :global(.c4) { background: linear-gradient(135deg, #ccdce4, #aac8d4); }
+  .gallery-card :global(.c5) { background: linear-gradient(135deg, #d0e8e4, #b0d0cc); }
+  .gallery-card :global(.c6) { background: linear-gradient(135deg, #c8d8e8, #a8c0d8); }
 
   .gallery-hint {
     margin-top: 20px;

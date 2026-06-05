@@ -57,7 +57,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 100vh;
-    background: #ffffff;
+    background: #f0f7fa;
   }
 
   .img-wrapper {
@@ -98,7 +98,7 @@
     right: 0;
     width: 120px;
     height: 120px;
-    background: radial-gradient(circle at top right, rgba(200, 192, 216, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle at top right, rgba(100, 170, 200, 0.12) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -134,7 +134,7 @@
   }
 
   .cn-blue {
-    color: #ede8f4;
+    color: #cce4ee;
   }
 
   .chapter-title {
@@ -171,7 +171,7 @@
   }
 
   .verse-white {
-    background: #faf6ee;
+    background: #e8f3f8;
   }
 
   .verse p {

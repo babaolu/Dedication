@@ -1,15 +1,15 @@
 :root {
-  --gold: #c9a96e;
-  --gold-light: #e8d5b0;
-  --gold-pale: #f5ead4;
-  --brown: #7a5c3a;
-  --text-dark: #3a2e22;
-  --text-mid: #6b5740;
-  --text-light: #a08060;
-  --hblue: #c8c0d8;
-  --hblue-pale: #f0eef6;
-  --sage: #dde8e2;
-  --sage-pale: #f0f5f2;
+  --gold:        #5a8090;
+  --gold-light:  #b4cdd4;
+  --gold-pale:   #ddeaf0;
+  --brown:       #4a6070;
+  --text-dark:   #2e3a40;
+  --text-mid:    #4a6070;
+  --text-light:  #7a95a0;
+  --hblue:       #b4cdd4;
+  --hblue-pale:  #eef5f8;
+  --sage:        #c8ddd2;
+  --sage-pale:   #edf5f0;
 }
 
 * {
@@ -22,7 +22,7 @@ html, body {
   width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #1a1410;
+  background: #1e2a32;
 }
 
 /* Animations */

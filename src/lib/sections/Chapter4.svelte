@@ -58,7 +58,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 100vh;
-    background: #faf8fc;
+    background: #edf4f8;
   }
 
   .img-wrapper {
@@ -99,12 +99,12 @@
     right: 0;
     width: 120px;
     height: 120px;
-    background: radial-gradient(circle at top right, rgba(200, 192, 216, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle at top right, rgba(100, 170, 200, 0.12) 0%, transparent 70%);
     pointer-events: none;
   }
 
   .tp-support {
-    background: linear-gradient(160deg, #ffffff 0%, #faf8fc 50%, #fcf8f6 100%);
+    background: linear-gradient(160deg, #ffffff 0%, #edf4f8 50%, #eaf4f0 100%);
   }
 
   .chapter-tag {
@@ -135,7 +135,7 @@
   }
 
   .cn-purple {
-    color: #f5f1f9;
+    color: #cce4ee;
   }
 
   .chapter-title {
@@ -172,7 +172,7 @@
   }
 
   .verse-support {
-    background: #fcf9f2;
+    background: #e4f0f5;
   }
 
   .verse p {

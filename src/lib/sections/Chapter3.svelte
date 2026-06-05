@@ -59,7 +59,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 100vh;
-    background: #f4f2f8;
+    background: #eaf2f6;
   }
 
   .img-wrapper {
@@ -105,7 +105,7 @@
   }
 
   .tp-blue {
-    background: linear-gradient(160deg, #ffffff 0%, #f4f2f8 100%);
+    background: linear-gradient(160deg, #ffffff 0%, #eaf2f6 100%);
   }
 
   .chapter-tag {
@@ -136,7 +136,7 @@
   }
 
   .cn-blue {
-    color: #ede8f4;
+    color: #cce4ee;
   }
 
   .chapter-title {
@@ -173,7 +173,7 @@
   }
 
   .verse-blue {
-    background: #f4f2f8;
+    background: #e2eff5;
   }
 
   .verse p {
