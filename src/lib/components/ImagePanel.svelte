@@ -255,8 +255,8 @@
 
   @media (max-width: 768px) {
     .img-panel {
-      min-height: 45vw;
-      max-height: 55vw;
+      min-height: 40vh;
+      max-height: 45vh;
     }
   }
 </style>

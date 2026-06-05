@@ -171,8 +171,8 @@
       direction: ltr;
     }
     .img-wrapper {
-      min-height: 45vw;
-      max-height: 55vw;
+      min-height: 40vh;
+      max-height: 45vh;
     }
     .text-panel {
       padding: 28px 20px;
