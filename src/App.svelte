@@ -1,16 +1,13 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
-  import { currentSection, navigationGoTo } from './lib/store.js';
-  import { createEngine } from './lib/cardEngine.js';
+  import { currentSection } from './lib/store.js';
+  import { initScrollEngine, destroyScrollEngine } from './lib/scrollEngine.js';
 
-  // Shared Floating Controls
-  import ProgressBar from './lib/components/ProgressBar.svelte';
-  import NavDots from './lib/components/NavDots.svelte';
+  // Floating controls
   import AudioBar from './lib/components/AudioBar.svelte';
-  import TapHint from './lib/components/TapHint.svelte';
-  import NavigationOverlay from './lib/components/NavigationOverlay.svelte';
+  import CountdownOverlay from './lib/components/CountdownOverlay.svelte';
 
-  // Card Sections
+  // Sections
   import Hero from './lib/sections/Hero.svelte';
   import Chapter1 from './lib/sections/Chapter1.svelte';
   import Chapter2 from './lib/sections/Chapter2.svelte';
@@ -20,40 +17,93 @@
   import Gallery from './lib/sections/Gallery.svelte';
   import Closing from './lib/sections/Closing.svelte';
 
-  let engine = null;
-  
-  // Placeholder navigation callback until engine mounts
-  let goTo = (idx) => {};
+  const SECTION_IDS = [
+    's-hero', 's-ch1', 's-ch2', 's-ch3',
+    's-interlude', 's-ch4', 's-gallery', 's-closing'
+  ];
+
+  const ANIMATION_CLASSES = [
+    'anim-fade-up', 'anim-fade-down',
+    'anim-flip-x', 'anim-flip-y', 'anim-flip-y-neg',
+    'anim-zoom-in', 'anim-zoom-out',
+    'anim-slide-left', 'anim-slide-right',
+    'anim-tilt-left', 'anim-tilt-right',
+    'anim-rise-rotate', 'anim-drop-rotate',
+    'anim-swing-in', 'anim-scale-tilt'
+  ];
+
+  let animPool = [];
+  function getNextAnimation() {
+    if (animPool.length === 0) {
+      // Shuffle the 15 classes
+      animPool = [...ANIMATION_CLASSES].sort(() => Math.random() - 0.5);
+    }
+    return animPool.pop();
+  }
+
+  let countdownRevealed = false;
+  let animatedSections = new Set();
+  let entranceObserver = null;
+  let scrollObserver = null;
 
   onMount(() => {
-    // Query DOM directly to get all 8 sections in document order
-    const sections = Array.from(document.querySelectorAll('#stage .card'));
+    // 1. Initialize Inertial Scrolling
+    initScrollEngine();
 
-    // Instantiate card transition engine with bound DOM elements
-    engine = createEngine({
-      sections,
-      onSectionChange: (idx) => {
-        currentSection.set(idx);
-      }
+    // 2. Entrance Animation Observer
+    entranceObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const id = el.id;
+
+          if (id === 's-hero') {
+            // Hero section is exempt
+            return;
+          }
+
+          if (!animatedSections.has(id)) {
+            const animClass = getNextAnimation();
+            el.style.opacity = '0';
+            el.classList.add(animClass);
+            animatedSections.add(id);
+          }
+        }
+      });
+    }, { threshold: 0.15 });
+
+    // 3. Scroll Position Active Section Observer
+    scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          const index = SECTION_IDS.indexOf(id);
+          if (index !== -1) {
+            currentSection.set(index);
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    // Observe all scroll-sections
+    const sections = document.querySelectorAll('.scroll-section');
+    sections.forEach(section => {
+      entranceObserver.observe(section);
+      scrollObserver.observe(section);
     });
-
-    // Wire up navigation function
-    goTo = engine.goTo;
-    navigationGoTo.set(engine.goTo);
   });
 
   onDestroy(() => {
-    if (engine) {
-      engine.destroy();
-    }
+    // Destroy Inertial Scrolling
+    destroyScrollEngine();
+
+    // Disconnect Observers
+    if (entranceObserver) entranceObserver.disconnect();
+    if (scrollObserver) scrollObserver.disconnect();
   });
 </script>
 
-<!-- Global progress bar -->
-<ProgressBar />
-
-<!-- Section stage and cards -->
-<div id="stage">
+<main>
   <Hero />
   <Chapter1 />
   <Chapter2 />
@@ -61,17 +111,9 @@
   <Interlude />
   <Chapter4 />
   <Gallery />
-  <Closing />
-</div>
+  <Closing on:countdownReveal={() => countdownRevealed = true} />
+  
+  <CountdownOverlay revealed={countdownRevealed} />
+</main>
 
-<!-- Full-screen Click-Zone and Swipe Overlay -->
-<NavigationOverlay />
-
-<!-- Floating Nav Dots (right-side) -->
-<NavDots {goTo} />
-
-<!-- Floating Custom Audio Player -->
 <AudioBar />
-
-<!-- "Tap to continue" Hint Overlay -->
-<TapHint />

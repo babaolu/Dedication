@@ -4,6 +4,7 @@ import { mount } from 'svelte';
 import './styles/typography.css';
 import './styles/global.css';
 import './styles/cards.css';
+import './styles/animations.css';
 
 import App from './App.svelte';
 

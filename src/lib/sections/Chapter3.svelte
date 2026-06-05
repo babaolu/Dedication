@@ -1,8 +1,6 @@
 <script>
   import ImagePanel from '../components/ImagePanel.svelte';
 
-  export let element = null;
-
   const slides = [
     { class: 'r1', icon: '🌿', img: 'photo-1.jpg' },
     { class: 'r2', icon: '🙏', img: 'photo-2.jpg' },
@@ -10,7 +8,7 @@
   ];
 </script>
 
-<section class="card hidden" id="s-ch3" bind:this={element}>
+<section class="scroll-section" id="s-ch3">
   <div class="chapter-card">
     <div class="img-wrapper">
       <ImagePanel sectionName="chapter3" {slides} />
@@ -34,10 +32,14 @@
 </section>
 
 <style>
+  #s-ch3 {
+    min-height: 100vh;
+  }
+
   .chapter-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100%;
+    min-height: 100vh;
   }
 
   .img-wrapper {

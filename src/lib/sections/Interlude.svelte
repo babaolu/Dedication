@@ -1,23 +1,11 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
-  import { currentSection } from '../store.js';
-
-  export let element = null;
 
   let stars = [];
   let revealImage = false;
   let timer = null;
-
-  // React to currentSection to start a 5-second timer when Interlude is active
-  $: if ($currentSection === 4) {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      revealImage = true;
-    }, 5000);
-  } else {
-    clearTimeout(timer);
-    revealImage = false; // Reset when navigating away
-  }
+  let sectionEl = null;
+  let observer = null;
 
   onMount(() => {
     // Generate star parameters reactively
@@ -32,14 +20,37 @@
         delay: Math.random() * 3 + 's'
       };
     });
+
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.intersectionRatio >= 0.3) {
+          if (!timer && !revealImage) {
+            timer = setTimeout(() => {
+              revealImage = true;
+            }, 5000);
+          }
+        } else {
+          clearTimeout(timer);
+          timer = null;
+          revealImage = false;
+        }
+      });
+    }, { threshold: [0, 0.3, 1] });
+
+    if (sectionEl) {
+      observer.observe(sectionEl);
+    }
   });
 
   onDestroy(() => {
     clearTimeout(timer);
+    if (observer) {
+      observer.disconnect();
+    }
   });
 </script>
 
-<section class="card hidden" id="s-interlude" bind:this={element}>
+<section class="scroll-section" id="s-interlude" bind:this={sectionEl}>
   <!-- Background fade layer revealing Invite.jpeg after 5s -->
   <div 
     class="interlude-bg" 
@@ -80,6 +91,7 @@
     text-align: center;
     padding: 60px 24px;
     position: relative;
+    min-height: 100vh;
   }
 
   .interlude-bg {

@@ -1,25 +1,13 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
-  import { currentSection, targetSection } from '../store.js';
-
-  export let element = null;
 
   const colors = ['#c9a96e', '#c8c0d8', '#dde8e2', '#e8d5b0', '#d4d0e8'];
   let petals = [];
 
   let revealImage = false;
   let timer = null;
-
-  // React to currentSection to start a 5-second timer when Hero is active
-  $: if ($currentSection === 0) {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      revealImage = true;
-    }, 5000);
-  } else {
-    clearTimeout(timer);
-    revealImage = false; // Reset when navigating away
-  }
+  let sectionEl = null;
+  let observer = null;
 
   onMount(() => {
     // Generate petals parameters reactively
@@ -30,14 +18,37 @@
       delay: (Math.random() * 10) + 's',
       transform: 'rotate(' + (Math.random() * 360) + 'deg)'
     }));
+
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.intersectionRatio >= 0.3) {
+          if (!timer && !revealImage) {
+            timer = setTimeout(() => {
+              revealImage = true;
+            }, 5000);
+          }
+        } else {
+          clearTimeout(timer);
+          timer = null;
+          revealImage = false;
+        }
+      });
+    }, { threshold: [0, 0.3, 1] });
+
+    if (sectionEl) {
+      observer.observe(sectionEl);
+    }
   });
 
   onDestroy(() => {
     clearTimeout(timer);
+    if (observer) {
+      observer.disconnect();
+    }
   });
 </script>
 
-<section class="card front" id="s-hero" bind:this={element}>
+<section class="scroll-section" id="s-hero" bind:this={sectionEl}>
   <!-- Background fade layer revealing Invite.jpeg -->
   <div 
     class="hero-bg" 
@@ -65,7 +76,7 @@
     </div>
     
     <div class="hero-parents">Seyi &amp; Ebun Oladepo</div>
-    <div class="hero-date">July 15 — Baby Dedication</div>
+    <div class="hero-date">July 5 — Baby Dedication</div>
   </div>
 </section>
 
@@ -79,6 +90,7 @@
     text-align: center;
     padding: 40px 24px;
     position: relative;
+    min-height: 100vh;
   }
 
   .hero-bg {

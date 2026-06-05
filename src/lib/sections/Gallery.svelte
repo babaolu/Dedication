@@ -1,6 +1,4 @@
 <script>
-  export let element = null;
-
   const galleryItems = [
     { emoji: '👨‍👩‍👦', img: 'photo-1.jpg', class: 'c1' },
     { emoji: '🤱', img: 'photo-2.jpg', class: 'c2' },
@@ -17,7 +15,7 @@
   }
 </script>
 
-<section class="card hidden" id="s-gallery" bind:this={element}>
+<section class="scroll-section" id="s-gallery">
   <div class="gallery-label">✦ Moments ✦</div>
   <h2 class="gallery-heading">A Life, Captured in Light</h2>
   
@@ -51,6 +49,7 @@
     justify-content: center;
     padding: 60px 40px;
     text-align: center;
+    min-height: 100vh;
   }
 
   .gallery-label {
