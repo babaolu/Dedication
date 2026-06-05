@@ -139,7 +139,7 @@
   }
 
   function removeInteractionListeners() {
-    ['click', 'touchstart', 'keydown', 'mouseover', 'scroll', 'touchmove', 'wheel'].forEach(evt => {
+    ['click', 'touchstart', 'touchend', 'pointerdown', 'pointerup', 'keydown', 'mousedown', 'mouseup', 'scroll', 'touchmove', 'wheel'].forEach(evt => {
       window.removeEventListener(evt, startAudio);
     });
   }
@@ -159,8 +159,8 @@
     // Attempt automatic play on load
     startAudio();
 
-    // Setup global interaction listeners to unlock audio, including scroll & wheel
-    ['click', 'touchstart', 'keydown', 'mouseover', 'scroll', 'touchmove', 'wheel'].forEach(evt => {
+    // Setup global interaction listeners to unlock audio, including scroll & wheel & touch/pointer release events
+    ['click', 'touchstart', 'touchend', 'pointerdown', 'pointerup', 'keydown', 'mousedown', 'mouseup', 'scroll', 'touchmove', 'wheel'].forEach(evt => {
       window.addEventListener(evt, startAudio, { passive: true });
     });
   });

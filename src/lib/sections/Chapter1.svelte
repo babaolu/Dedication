@@ -20,8 +20,6 @@
       <h2 class="chapter-title">Where It All <em>Began</em></h2>
       <div class="chapter-text">
         <p>Every great story has a beginning — and ours began with a smile, a conversation, and a quiet knowing that something beautiful was unfolding.</p>
-        <p>Seyi saw Ebun, and the world quietly rearranged itself. Two hearts, two paths, crossing at exactly the right moment — because God's timing is never late.</p>
-        <p>What started as friendship bloomed into something neither could deny: a love rooted in faith, laughter, and the certainty that they were made for each other.</p>
       </div>
       <div class="verse verse-white">
         <p>"He who finds a wife finds a good thing and obtains favour from the Lord."</p>
@@ -117,11 +115,11 @@
   }
 
   .chapter-text {
-    font-size: clamp(14.5px, 1.6vw, 18.5px);
+    font-size: clamp(18px, 2.3vw, 24px);
     line-height: 1.9;
     color: var(--text-mid);
-    font-weight: 400;
-    max-width: 420px;
+    font-weight: 600;
+    max-width: 480px;
   }
 
   .chapter-text p + p {
@@ -141,16 +139,18 @@
 
   .verse p {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(15.5px, 2vw, 19.5px);
+    font-size: clamp(19px, 2.5vw, 26px);
     font-style: italic;
     color: var(--brown);
     line-height: 1.7;
+    font-weight: 600;
   }
 
   .verse cite {
     display: block;
     margin-top: 8px;
-    font-size: 12.5px;
+    font-size: 15px;
+    font-weight: 700;
     letter-spacing: .15em;
     color: var(--gold);
     text-transform: uppercase;

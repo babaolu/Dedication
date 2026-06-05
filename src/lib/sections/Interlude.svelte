@@ -193,17 +193,19 @@
 
   .interlude-verse {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(17px, 2.2vw, 23px);
+    font-size: clamp(20px, 2.5vw, 27px);
     font-style: italic;
-    color: rgba(255, 255, 255, .7);
+    color: rgba(255, 255, 255, .85);
     line-height: 1.8;
-    max-width: 500px;
+    max-width: 540px;
+    font-weight: 600;
   }
 
   .interlude-verse cite {
     display: block;
     margin-top: 12px;
-    font-size: 12.5px;
+    font-size: 15px;
+    font-weight: 700;
     letter-spacing: .2em;
     color: var(--gold);
     text-transform: uppercase;

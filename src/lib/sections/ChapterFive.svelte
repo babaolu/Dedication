@@ -2,36 +2,37 @@
   import ImagePanel from '../components/ImagePanel.svelte';
 
   const slides = [
-    { class: 'q1', icon: '💍', img: 'photo-1.jpg' },
-    { class: 'q2', icon: '🎶', img: 'photo-2.jpg' },
-    { class: 'q3', icon: '🥂', img: 'photo-3.jpg' }
+    { class: 's1', icon: '👶', img: 'photo-1.jpg' },
+    { class: 's2', icon: '🤱', img: 'photo-2.jpg' },
+    { class: 's3', icon: '✨', img: 'photo-3.jpg' }
   ];
 </script>
 
-<section class="scroll-section" id="s-ch2">
+<section class="scroll-section" id="s-ch5">
   <div class="chapter-card flip-layout">
     <div class="img-wrapper">
-      <ImagePanel sectionName="chapter2" {slides} />
+      <ImagePanel sectionName="chapter4" {slides} />
     </div>
     
-    <div class="text-panel tp-sage">
-      <div class="chapter-tag">Chapter Two</div>
-      <div class="chapter-number cn-sage">02</div>
-      <h2 class="chapter-title">They Said <em>"I Do"</em></h2>
+    <div class="text-panel tp-blend">
+      <div class="chapter-tag">Chapter Five</div>
+      <div class="chapter-number cn-sage">05</div>
+      <h2 class="chapter-title">Our <em>Greatest</em> Gift</h2>
       <div class="chapter-text">
-        <p>Seyi saw Ebun, and the world quietly rearranged itself. Two hearts, two paths, crossing at exactly the right moment — because God's timing is never late.</p>
-        <p>What started as friendship bloomed into something neither could deny: a love rooted in faith, laughter, and the certainty that they were made for each other.</p>
+        <p>He arrived on the 3rd of March — and the house filled with a joy that has no adequate word. Enoch. Tiny fingers, curious eyes, and a cry that sounded like an answered prayer.</p>
+        <p>Ebun held him first, tears streaming, whispering "thank you" over and over. Seyi looked at his son and understood in an instant what it means when the Bible says God gives good gifts.</p>
+        <p>Every year of waiting made sense. Every prayer found its answer in this one small face. Enoch is not just a baby — he is a miracle, a testimony, and a declaration that God is faithful.</p>
       </div>
-      <div class="verse verse-sage">
-        <p>"Therefore what God has joined together, let no one separate."</p>
-        <cite>Mark 10:9</cite>
+      <div class="verse verse-blend">
+        <p>"Children are a heritage from the Lord, offspring a reward from him."</p>
+        <cite>Psalm 127:3</cite>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  #s-ch2 {
+  #s-ch5 {
     min-height: 100vh;
   }
 
@@ -74,8 +75,8 @@
     pointer-events: none;
   }
 
-  .tp-sage {
-    background: linear-gradient(160deg, #ffffff 0%, #f2f6f4 100%);
+  .tp-blend {
+    background: linear-gradient(160deg, #ffffff 0%, #f0f4f2 50%, #f5f3f9 100%);
   }
 
   .chapter-tag {
@@ -142,8 +143,8 @@
     border-radius: 0 8px 8px 0;
   }
 
-  .verse-sage {
-    background: #f2f5f1;
+  .verse-blend {
+    background: #f0f4f2;
   }
 
   .verse p {

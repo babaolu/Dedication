@@ -12,14 +12,15 @@
   import Chapter1 from './lib/sections/Chapter1.svelte';
   import Chapter2 from './lib/sections/Chapter2.svelte';
   import Chapter3 from './lib/sections/Chapter3.svelte';
+  import ChapterFour from './lib/sections/ChapterFour.svelte';
   import Interlude from './lib/sections/Interlude.svelte';
-  import Chapter4 from './lib/sections/Chapter4.svelte';
+  import ChapterFive from './lib/sections/ChapterFive.svelte';
   import Gallery from './lib/sections/Gallery.svelte';
   import Closing from './lib/sections/Closing.svelte';
 
   const SECTION_IDS = [
-    's-hero', 's-ch1', 's-ch2', 's-ch3',
-    's-interlude', 's-ch4', 's-gallery', 's-closing'
+    's-hero', 's-ch1', 's-ch2', 's-ch3', 's-ch4',
+    's-interlude', 's-ch5', 's-gallery', 's-closing'
   ];
 
   const ANIMATION_CLASSES = [
@@ -108,8 +109,9 @@
   <Chapter1 />
   <Chapter2 />
   <Chapter3 />
+  <ChapterFour />
   <Interlude />
-  <Chapter4 />
+  <ChapterFive />
   <Gallery />
   <Closing on:countdownReveal={() => countdownRevealed = true} />
   

@@ -2,30 +2,29 @@
   import ImagePanel from '../components/ImagePanel.svelte';
 
   const slides = [
-    { class: 's1', icon: '👶', img: 'photo-1.jpg' },
-    { class: 's2', icon: '🤱', img: 'photo-2.jpg' },
-    { class: 's3', icon: '✨', img: 'photo-3.jpg' }
+    { class: 't1', icon: '🙌', img: 'photo-1.jpg' },
+    { class: 't2', icon: '❤️', img: 'photo-2.jpg' },
+    { class: 't3', icon: '👨‍👩‍👧‍👦', img: 'photo-3.jpg' }
   ];
 </script>
 
 <section class="scroll-section" id="s-ch4">
-  <div class="chapter-card flip-layout">
+  <div class="chapter-card">
     <div class="img-wrapper">
-      <ImagePanel sectionName="chapter4" {slides} />
+      <ImagePanel sectionName="chapter_support" {slides} />
     </div>
     
-    <div class="text-panel tp-blend">
+    <div class="text-panel tp-support">
       <div class="chapter-tag">Chapter Four</div>
-      <div class="chapter-number cn-sage">04</div>
-      <h2 class="chapter-title">Our <em>Greatest</em> Gift</h2>
+      <div class="chapter-number cn-purple">04</div>
+      <h2 class="chapter-title">Surrounded by <em>Love</em></h2>
       <div class="chapter-text">
-        <p>He arrived on the 3rd of March — and the house filled with a joy that has no adequate word. Enoch. Tiny fingers, curious eyes, and a cry that sounded like an answered prayer.</p>
-        <p>Ebun held him first, tears streaming, whispering "thank you" over and over. Seyi looked at his son and understood in an instant what it means when the Bible says God gives good gifts.</p>
-        <p>Every year of waiting made sense. Every prayer found its answer in this one small face. Enoch is not just a baby — he is a miracle, a testimony, and a declaration that God is faithful.</p>
+        <p>A miracle is never witnessed in isolation. As Seyi and Ebun waited, and as they now celebrate, they were never alone. They were held up by the hands of friends, wrapped in the prayers of parents, and cheered on by a community of love.</p>
+        <p>From quiet, whispered prayers in distant rooms to the joyful noise of family gathered close, every step of this journey has been paved with the support of those who stood in the gap.</p>
       </div>
-      <div class="verse verse-blend">
-        <p>"Children are a heritage from the Lord, offspring a reward from him."</p>
-        <cite>Psalm 127:3</cite>
+      <div class="verse verse-support">
+        <p>"Bear one another's burdens, and so fulfill the law of Christ."</p>
+        <cite>Galatians 6:2</cite>
       </div>
     </div>
   </div>
@@ -40,14 +39,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 100vh;
-  }
-
-  .chapter-card.flip-layout {
-    direction: rtl;
-  }
-
-  .chapter-card.flip-layout > * {
-    direction: ltr;
   }
 
   .img-wrapper {
@@ -75,8 +66,8 @@
     pointer-events: none;
   }
 
-  .tp-blend {
-    background: linear-gradient(160deg, #ffffff 0%, #f0f4f2 50%, #f5f3f9 100%);
+  .tp-support {
+    background: linear-gradient(160deg, #ffffff 0%, #faf8fc 50%, #fcf8f6 100%);
   }
 
   .chapter-tag {
@@ -106,8 +97,8 @@
     margin-bottom: -10px;
   }
 
-  .cn-sage {
-    color: #e6eee9;
+  .cn-purple {
+    color: #f5f1f9;
   }
 
   .chapter-title {
@@ -125,11 +116,11 @@
   }
 
   .chapter-text {
-    font-size: clamp(14.5px, 1.6vw, 18.5px);
+    font-size: clamp(18px, 2.3vw, 24px);
     line-height: 1.9;
     color: var(--text-mid);
-    font-weight: 400;
-    max-width: 420px;
+    font-weight: 600;
+    max-width: 480px;
   }
 
   .chapter-text p + p {
@@ -143,22 +134,24 @@
     border-radius: 0 8px 8px 0;
   }
 
-  .verse-blend {
-    background: #f0f4f2;
+  .verse-support {
+    background: #fcf9f2;
   }
 
   .verse p {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(15.5px, 2vw, 19.5px);
+    font-size: clamp(19px, 2.5vw, 26px);
     font-style: italic;
     color: var(--brown);
     line-height: 1.7;
+    font-weight: 600;
   }
 
   .verse cite {
     display: block;
     margin-top: 8px;
-    font-size: 12.5px;
+    font-size: 15px;
+    font-weight: 700;
     letter-spacing: .15em;
     color: var(--gold);
     text-transform: uppercase;
@@ -167,10 +160,6 @@
   @media (max-width: 768px) {
     .chapter-card {
       grid-template-columns: 1fr;
-      direction: ltr !important;
-    }
-    .chapter-card.flip-layout > * {
-      direction: ltr;
     }
     .img-wrapper {
       min-height: auto !important;

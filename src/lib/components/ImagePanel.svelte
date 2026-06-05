@@ -173,6 +173,10 @@
   .img-slide.s2 { background: linear-gradient(135deg, #fce0d0, #f8cdb8, #f4baa0); }
   .img-slide.s3 { background: linear-gradient(135deg, #f8e8dc, #f4d8c4, #eec8a8); }
 
+  .img-slide.t1 { background: linear-gradient(135deg, #e0d0f0, #c8b0e0, #b090d0); }
+  .img-slide.t2 { background: linear-gradient(135deg, #f0d0e0, #e0b0c8, #d090b0); }
+  .img-slide.t3 { background: linear-gradient(135deg, #e0f0d0, #c8e0b0, #b0d090); }
+
   .img-slide::after {
     content: attr(data-icon);
     position: absolute;
