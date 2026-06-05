@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte';
   import ImagePanel from '../components/ImagePanel.svelte';
 
   const slides = [
@@ -6,12 +7,30 @@
     { class: 's2', icon: '🤱', img: 'photo-2.jpg' },
     { class: 's3', icon: '✨', img: 'photo-3.jpg' }
   ];
+
+  let randomImgWidth = '65%';
+  let randomImgHeight = '82%';
+
+  onMount(() => {
+    // Generate a random width between 50% and 80%
+    const w = 50 + Math.random() * 30;
+    randomImgWidth = `${w.toFixed(1)}%`;
+
+    // Generate a random height between 75% and 90%
+    const h = 75 + Math.random() * 15;
+    randomImgHeight = `${h.toFixed(1)}%`;
+  });
 </script>
 
 <section class="scroll-section" id="s-ch5">
   <div class="chapter-card flip-layout">
     <div class="img-wrapper">
-      <ImagePanel sectionName="chapter5" {slides} />
+      <div 
+        class="desktop-reduced-panel" 
+        style="--desktop-width: {randomImgWidth}; --desktop-height: {randomImgHeight};"
+      >
+        <ImagePanel sectionName="chapter5" {slides} />
+      </div>
     </div>
     
     <div class="text-panel tp-blend">
@@ -40,6 +59,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 100vh;
+    background: #f0f4f2;
   }
 
   .chapter-card.flip-layout {
@@ -53,6 +73,23 @@
   .img-wrapper {
     height: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .desktop-reduced-panel {
+    width: var(--desktop-width, 100%);
+    height: var(--desktop-height, 100%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .desktop-reduced-panel:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
   }
 
   .text-panel {
@@ -179,6 +216,16 @@
       max-height: none !important;
       height: auto !important;
       aspect-ratio: 4 / 3 !important;
+    }
+    .desktop-reduced-panel {
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+    .desktop-reduced-panel:hover {
+      transform: none !important;
+      box-shadow: none !important;
     }
     .text-panel {
       padding: 28px 20px;

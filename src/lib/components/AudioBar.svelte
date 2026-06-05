@@ -124,7 +124,15 @@
 
   function startAudio() {
     if (audioUnlocked) return;
-    if (!audioElement || !audioElement.paused) return;
+    if (!audioElement) return;
+    
+    if (!audioElement.paused) {
+      audioUnlocked = true;
+      isAudioPlaying.set(true);
+      removeInteractionListeners();
+      return;
+    }
+
     audioElement.volume = 0.45;
     audioElement.play()
       .then(() => {
@@ -141,6 +149,7 @@
   function removeInteractionListeners() {
     ['click', 'touchstart', 'touchend', 'pointerdown', 'pointerup', 'keydown', 'mousedown', 'mouseup', 'scroll', 'touchmove', 'wheel'].forEach(evt => {
       window.removeEventListener(evt, startAudio);
+      document.removeEventListener(evt, startAudio);
     });
   }
 
@@ -162,6 +171,7 @@
     // Setup global interaction listeners to unlock audio, including scroll & wheel & touch/pointer release events
     ['click', 'touchstart', 'touchend', 'pointerdown', 'pointerup', 'keydown', 'mousedown', 'mouseup', 'scroll', 'touchmove', 'wheel'].forEach(evt => {
       window.addEventListener(evt, startAudio, { passive: true });
+      document.addEventListener(evt, startAudio, { passive: true });
     });
   });
 
@@ -188,7 +198,7 @@
 </button>
 
 <!-- Background Music Element -->
-<audio bind:this={audioElement} src={selectedTrack} loop></audio>
+<audio bind:this={audioElement} src={selectedTrack} loop preload="auto"></audio>
 
 <style>
   #audio-bar {

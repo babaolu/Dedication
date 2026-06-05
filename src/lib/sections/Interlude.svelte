@@ -27,7 +27,7 @@
           if (!timer && !revealImage) {
             timer = setTimeout(() => {
               revealImage = true;
-            }, 5000);
+            }, 2000);
           }
         } else {
           clearTimeout(timer);
