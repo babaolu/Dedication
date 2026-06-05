@@ -35,7 +35,18 @@
       [3, 1, 2], // Full-width hero card followed by smaller split cards
       [3, 2, 1]  // Full-width hero card followed by smaller split cards
     ];
-    const randomLayout = layouts[Math.floor(Math.random() * layouts.length)];
+    let randomLayout = [...layouts[Math.floor(Math.random() * layouts.length)]];
+
+    // Ensure Dad_and_mum.jpeg always takes the largest column span in the layout
+    const dadMumIndex = shuffled.findIndex(item => item.img === 'Dad_and_mum.jpeg');
+    const maxSpanVal = Math.max(...randomLayout);
+    const maxSpanIndex = randomLayout.indexOf(maxSpanVal);
+
+    if (maxSpanIndex !== dadMumIndex) {
+      const temp = randomLayout[dadMumIndex];
+      randomLayout[dadMumIndex] = randomLayout[maxSpanIndex];
+      randomLayout[maxSpanIndex] = temp;
+    }
 
     // 3. Map with random styling properties and curated aspect ratios based on column span
     items = shuffled.map((item, i) => {
