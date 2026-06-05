@@ -17,10 +17,11 @@
   import ChapterFive from './lib/sections/Chapter5.svelte';
   import Gallery from './lib/sections/Gallery.svelte';
   import Closing from './lib/sections/Closing.svelte';
+  import VenueDressCode from './lib/sections/VenueDressCode.svelte';
 
   const SECTION_IDS = [
     's-hero', 's-ch1', 's-ch2', 's-ch3', 's-ch4',
-    's-interlude', 's-ch5', 's-gallery', 's-closing'
+    's-interlude', 's-ch5', 's-gallery', 's-closing', 's-venue'
   ];
 
   const ANIMATION_CLASSES = [
@@ -46,6 +47,13 @@
   let animatedSections = new Set();
   let entranceObserver = null;
   let scrollObserver = null;
+
+  function handleDockHeight(event) {
+    const venueEl = document.getElementById('s-venue');
+    if (venueEl) {
+      venueEl.style.paddingBottom = (event.detail.height + 16) + 'px';
+    }
+  }
 
   onMount(() => {
     // 1. Initialize Inertial Scrolling
@@ -114,8 +122,9 @@
   <ChapterFive />
   <Gallery />
   <Closing on:countdownReveal={() => countdownRevealed = true} />
+  <VenueDressCode />
   
-  <CountdownOverlay revealed={countdownRevealed} />
+  <CountdownOverlay revealed={countdownRevealed} on:dockHeight={handleDockHeight} />
 </main>
 
 <AudioBar />
