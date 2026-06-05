@@ -16,9 +16,10 @@
     position: absolute;
     inset: 0;
     background-image: url('/images/Intro.jpeg');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: #ffffff;
     width: 100%;
     height: 100%;
   }

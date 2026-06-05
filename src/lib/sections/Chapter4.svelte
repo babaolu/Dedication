@@ -11,7 +11,7 @@
 <section class="scroll-section" id="s-ch4">
   <div class="chapter-card">
     <div class="img-wrapper">
-      <ImagePanel sectionName="chapter_support" {slides} />
+      <ImagePanel sectionName="Chapter4" {slides} />
     </div>
     
     <div class="text-panel tp-support">

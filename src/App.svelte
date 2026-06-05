@@ -12,9 +12,9 @@
   import Chapter1 from './lib/sections/Chapter1.svelte';
   import Chapter2 from './lib/sections/Chapter2.svelte';
   import Chapter3 from './lib/sections/Chapter3.svelte';
-  import ChapterFour from './lib/sections/ChapterFour.svelte';
+  import ChapterFour from './lib/sections/Chapter4.svelte';
   import Interlude from './lib/sections/Interlude.svelte';
-  import ChapterFive from './lib/sections/ChapterFive.svelte';
+  import ChapterFive from './lib/sections/Chapter5.svelte';
   import Gallery from './lib/sections/Gallery.svelte';
   import Closing from './lib/sections/Closing.svelte';
 
@@ -58,8 +58,8 @@
           const el = entry.target;
           const id = el.id;
 
-          if (id === 's-hero') {
-            // Hero section is exempt
+          if (id === 's-hero' || id === 's-closing') {
+            // Hero and Closing sections are exempt
             return;
           }
 

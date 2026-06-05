@@ -11,7 +11,7 @@
 <section class="scroll-section" id="s-ch5">
   <div class="chapter-card flip-layout">
     <div class="img-wrapper">
-      <ImagePanel sectionName="chapter4" {slides} />
+      <ImagePanel sectionName="chapter5" {slides} />
     </div>
     
     <div class="text-panel tp-blend">

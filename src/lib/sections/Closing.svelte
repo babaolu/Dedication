@@ -40,7 +40,6 @@
     <p class="closing-sub">
       On this day, Seyi and Ebun Oladepo stand before God and family to dedicate Enoch — to raise him in love, faith, and the knowledge that he is deeply, eternally wanted.
     </p>
-    <div class="closing-date-badge">July 5 — Baby Dedication</div>
   </div>
 
   <!-- Bottom 2/3: Transparent window revealing Invite.jpeg behind it -->
@@ -133,17 +132,7 @@
     margin: 0 auto clamp(20px, 3vh, 36px);
   }
 
-  .closing-date-badge {
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: .3em;
-    color: var(--gold);
-    text-transform: uppercase;
-    border: 1.5px solid var(--gold-light);
-    padding: 12px 32px;
-    border-radius: 30px;
-    display: inline-block;
-  }
+
 
   @media (max-width: 768px) {
     #s-closing {
