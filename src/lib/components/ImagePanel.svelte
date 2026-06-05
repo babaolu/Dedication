@@ -255,8 +255,12 @@
 
   @media (max-width: 768px) {
     .img-panel {
-      min-height: 40vh;
-      max-height: 45vh;
+      min-height: auto !important;
+      max-height: none !important;
+      height: 100% !important;
+    }
+    .slide-img {
+      object-fit: contain !important;
     }
   }
 </style>

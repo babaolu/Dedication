@@ -35,7 +35,7 @@
   <p class="closing-sub">
     On this day, Seyi and Ebun Oladepo stand before God and family to dedicate Enoch — to raise him in love, faith, and the knowledge that he is deeply, eternally wanted.
   </p>
-  <div class="closing-date-badge">July 15 — Baby Dedication</div>
+  <div class="closing-date-badge">July 5 — Baby Dedication</div>
 </section>
 
 <style>

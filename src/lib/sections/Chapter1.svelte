@@ -161,8 +161,10 @@
       grid-template-columns: 1fr;
     }
     .img-wrapper {
-      min-height: 40vh;
-      max-height: 45vh;
+      min-height: auto !important;
+      max-height: none !important;
+      height: auto !important;
+      aspect-ratio: 4 / 3 !important;
     }
     .text-panel {
       padding: 28px 20px;

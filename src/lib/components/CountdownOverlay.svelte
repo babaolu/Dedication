@@ -3,7 +3,7 @@
 
   export let revealed = false;
 
-  const TARGET_DATE = '2026-07-15T11:00:00+01:00'; // Target date
+  const TARGET_DATE = '2026-07-05T11:00:00+01:00'; // Target date
   const targetTime = new Date(TARGET_DATE).getTime();
 
   let days = '00';

@@ -13,6 +13,98 @@
   let audioElement;
   let audioUnlocked = false;
 
+  // Draggable State
+  let buttonEl;
+  let posX = 0;
+  let posY = 0;
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let initialX = 0;
+  let initialY = 0;
+  let dragThreshold = 5;
+  let moved = false;
+
+  function keepInBounds() {
+    const width = buttonEl ? buttonEl.offsetWidth : 150;
+    const height = buttonEl ? buttonEl.offsetHeight : 45;
+    if (posX < 10) posX = 10;
+    if (posY < 10) posY = 10;
+    const maxW = window.innerWidth - width - 10;
+    const maxH = window.innerHeight - height - 10;
+    if (posX > maxW) posX = maxW;
+    if (posY > maxH) posY = maxH;
+  }
+
+  function handleMouseDown(e) {
+    if (e.button !== 0) return; // Only left click
+    startDrag(e.clientX, e.clientY);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
+  }
+
+  function handleTouchStart(e) {
+    if (e.touches.length > 0) {
+      startDrag(e.touches[0].clientX, e.touches[0].clientY);
+      window.addEventListener('touchmove', handleTouchMove, { passive: false });
+      window.addEventListener('touchend', handleTouchEnd);
+    }
+  }
+
+  function startDrag(clientX, clientY) {
+    isDragging = true;
+    moved = false;
+    startX = clientX;
+    startY = clientY;
+    initialX = posX;
+    initialY = posY;
+  }
+
+  function handleMouseMove(e) {
+    if (!isDragging) return;
+    moveDrag(e.clientX, e.clientY);
+  }
+
+  function handleTouchMove(e) {
+    if (!isDragging) return;
+    e.preventDefault(); // Prevent scrolling page while sliding the audio button
+    if (e.touches.length > 0) {
+      moveDrag(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }
+
+  function moveDrag(clientX, clientY) {
+    const dx = clientX - startX;
+    const dy = clientY - startY;
+    if (Math.abs(dx) > dragThreshold || Math.abs(dy) > dragThreshold) {
+      moved = true;
+    }
+    posX = initialX + dx;
+    posY = initialY + dy;
+    keepInBounds();
+  }
+
+  function handleMouseUp() {
+    isDragging = false;
+    window.removeEventListener('mousemove', handleMouseMove);
+    window.removeEventListener('mouseup', handleMouseUp);
+  }
+
+  function handleTouchEnd() {
+    isDragging = false;
+    window.removeEventListener('touchmove', handleTouchMove);
+    window.removeEventListener('touchend', handleTouchEnd);
+  }
+
+  function handleButtonClick(e) {
+    if (moved) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    toggleAudio();
+  }
+
   function toggleAudio() {
     if (!audioElement) return;
 
@@ -21,10 +113,7 @@
         .then(() => {
           audioUnlocked = true;
           isAudioPlaying.set(true);
-          // Clean up interaction event listeners if successfully played manually
-          ['click', 'touchstart', 'keydown', 'mouseover'].forEach(evt => {
-            window.removeEventListener(evt, startAudio);
-          });
+          removeInteractionListeners();
         })
         .catch(err => console.log('Playback error:', err));
     } else {
@@ -41,39 +130,57 @@
       .then(() => {
         audioUnlocked = true;
         isAudioPlaying.set(true);
-        // Clean up global listeners once successfully playing
-        ['click', 'touchstart', 'keydown', 'mouseover'].forEach(evt => {
-          window.removeEventListener(evt, startAudio);
-        });
+        removeInteractionListeners();
       })
       .catch((err) => {
-        // Autoplay or hover play blocked, keep listeners active for click/touch
+        // Playback blocked, keep listeners active for scroll or clicks
         isAudioPlaying.set(false);
       });
   }
 
+  function removeInteractionListeners() {
+    ['click', 'touchstart', 'keydown', 'mouseover', 'scroll', 'touchmove', 'wheel'].forEach(evt => {
+      window.removeEventListener(evt, startAudio);
+    });
+  }
+
   onMount(() => {
+    // Wait for DOM to lay out and measure actual width/height
+    setTimeout(() => {
+      const width = buttonEl ? buttonEl.offsetWidth : 150;
+      const height = buttonEl ? buttonEl.offsetHeight : 45;
+      posX = window.innerWidth - width - 24;
+      posY = window.innerHeight - height - 24;
+      keepInBounds();
+    }, 100);
+
+    window.addEventListener('resize', keepInBounds);
+
     // Attempt automatic play on load
     startAudio();
 
-    // Setup global interaction listeners to unlock audio if blocked
-    ['click', 'touchstart', 'keydown', 'mouseover'].forEach(evt => {
+    // Setup global interaction listeners to unlock audio, including scroll & wheel
+    ['click', 'touchstart', 'keydown', 'mouseover', 'scroll', 'touchmove', 'wheel'].forEach(evt => {
       window.addEventListener(evt, startAudio, { passive: true });
     });
   });
 
   onDestroy(() => {
-    ['click', 'touchstart', 'keydown', 'mouseover'].forEach(evt => {
-      window.removeEventListener(evt, startAudio);
-    });
+    window.removeEventListener('resize', keepInBounds);
+    removeInteractionListeners();
   });
 </script>
 
-<!-- Floating Audio Controller -->
+<!-- Floating Audio Controller (Slidable) -->
 <button
+  bind:this={buttonEl}
   id="audio-bar"
   class:playing={$isAudioPlaying}
-  on:click|stopPropagation={toggleAudio}
+  class:dragging={isDragging}
+  style="left: {posX}px; top: {posY}px; bottom: auto; right: auto; margin: 0; position: fixed;"
+  on:mousedown={handleMouseDown}
+  on:touchstart|passive={handleTouchStart}
+  on:click|stopPropagation={handleButtonClick}
   aria-label="Toggle background music"
 >
   <span class="note">♪</span>
@@ -86,8 +193,6 @@
 <style>
   #audio-bar {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
     z-index: 9999;
     display: flex;
     align-items: center;
@@ -98,14 +203,23 @@
     padding: 10px 18px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
     backdrop-filter: blur(8px);
-    cursor: pointer;
-    transition: transform 0.2s;
+    cursor: grab;
+    transition: transform 0.2s, background-color 0.2s;
     outline: none;
     font-family: inherit;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none; /* Prevents native gestures on the play button */
   }
 
   #audio-bar:hover {
     transform: scale(1.04);
+  }
+
+  #audio-bar.dragging {
+    cursor: grabbing;
+    background: rgba(245, 234, 212, 0.95);
+    transform: scale(1.05);
   }
 
   #audio-bar .note {

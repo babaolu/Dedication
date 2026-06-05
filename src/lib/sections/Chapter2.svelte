@@ -19,9 +19,8 @@
       <div class="chapter-number cn-sage">02</div>
       <h2 class="chapter-title">They Said <em>"I Do"</em></h2>
       <div class="chapter-text">
-        <p>Dressed in white and wrapped in joy, Ebun walked towards the one God had kept for her. Seyi waited — eyes glistening, heart full — ready to make his forever promise.</p>
-        <p>Before family, before friends, and before their Father in heaven, Seyi and Ebun Oladepo became one. Two became one flesh. One home. One covenant.</p>
-        <p>The celebration was glorious, but the quiet moment between them — hands held, vows whispered — that was the sacred part that will live forever.</p>
+        <p>Seyi saw Ebun, and the world quietly rearranged itself. Two hearts, two paths, crossing at exactly the right moment — because God's timing is never late.</p>
+        <p>What started as friendship bloomed into something neither could deny: a love rooted in faith, laughter, and the certainty that they were made for each other.</p>
       </div>
       <div class="verse verse-sage">
         <p>"Therefore what God has joined together, let no one separate."</p>
@@ -173,8 +172,10 @@
       direction: ltr;
     }
     .img-wrapper {
-      min-height: 40vh;
-      max-height: 45vh;
+      min-height: auto !important;
+      max-height: none !important;
+      height: auto !important;
+      aspect-ratio: 4 / 3 !important;
     }
     .text-panel {
       padding: 28px 20px;
