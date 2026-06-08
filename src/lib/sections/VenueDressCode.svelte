@@ -31,7 +31,7 @@
         <span class="venue-row-icon">👗</span>
         <div>
           <div class="venue-row-label">Dress Code</div>
-          <div class="venue-row-value">Dress like an African<br><em>a touch of teal blue</em></div>
+          <div class="venue-row-value">Dress like an African<br><em>or a touch of teal blue</em></div>
         </div>
       </div>
     </div>

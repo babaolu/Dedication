@@ -33,15 +33,14 @@
     updateCountdown();
     timer = setInterval(updateCountdown, 1000);
 
-    // Observe #s-venue to show/hide dock
-    const venueSection = document.getElementById('s-venue');
-    if (venueSection) {
+    const heroSection = document.getElementById('s-hero');
+    if (heroSection) {
       venueObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           dockVisible = entry.intersectionRatio >= 0.2;
         });
       }, { threshold: [0, 0.2, 0.5, 1] });
-      venueObserver.observe(venueSection);
+      venueObserver.observe(heroSection);
     }
 
     // Dispatch dock height after render so App can add padding to #s-venue

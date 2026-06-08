@@ -49,9 +49,9 @@
   let scrollObserver = null;
 
   function handleDockHeight(event) {
-    const venueEl = document.getElementById('s-venue');
-    if (venueEl) {
-      venueEl.style.paddingBottom = (event.detail.height + 16) + 'px';
+    const heroEl = document.getElementById('s-hero');
+    if (heroEl) {
+      heroEl.style.paddingBottom = (event.detail.height + 16) + 'px';
     }
   }
 
